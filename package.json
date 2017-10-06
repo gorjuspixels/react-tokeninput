@@ -4,7 +4,7 @@
   "description": "Tokeninput component for React",
   "main": "lib/index.js",
   "scripts": {
-    "prepublish": "babel src -d lib && npm run build",
+    "prepare": "babel src -d lib && npm run build",
     "build": "NODE_ENV=production webpack --config webpack.dist.config.js",
     "test": "node_modules/.bin/karma start",
     "dev": "webpack --watch --config example/webpack.config.js"

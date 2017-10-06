@@ -1,7 +1,4 @@
 example
 script
-webpack.config.js
-webpack.dist.config.js
-src
 test
 .travis.yml
