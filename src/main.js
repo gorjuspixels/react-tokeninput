@@ -32,9 +32,9 @@ module.exports = React.createClass({
     this.refs['combo-li'].querySelector('input').focus();
   },
 
-  handleFocus: function() {
+  handleFocus: function(event) {
     if (this.props.onFocus) {
-      this.props.onFocus();
+      this.props.onFocus(event);
     }
   },
 

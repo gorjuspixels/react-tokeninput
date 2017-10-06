@@ -11,6 +11,15 @@ var input = React.createFactory('input');
 module.exports = React.createClass({
 
   propTypes: {
+    /**
+     * Called when the combobox's input receives focus and the user begins interacting with it.
+     *
+     * Signature:
+     *
+     * ```js
+     * function(focusEvent){}
+     * * ```
+    */
     onFocus: React.PropTypes.func,
 
     /**
@@ -166,8 +175,8 @@ module.exports = React.createClass({
     }.bind(this));
   },
 
-  handleInputFocus: function() {
-    this.props.onFocus();
+  handleInputFocus: function(event) {
+    this.props.onFocus(event);
     this.maybeShowList();
   },
 
