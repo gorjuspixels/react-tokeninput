@@ -23,6 +23,17 @@ module.exports = React.createClass({
     onFocus: React.PropTypes.func,
 
     /**
+     * Called when the combobox's input loses focus after being activated for user input
+     *
+     * Signature:
+     *
+     * ```js
+     * function(blurEvent){}
+     * ```
+    */
+    onBlur: React.PropTypes.func,
+
+    /**
      * Called when the combobox receives user input, this is your chance to
      * filter the data and rerender the options.
      *
@@ -56,6 +67,7 @@ module.exports = React.createClass({
     return {
       autocomplete: 'both',
       onFocus: k,
+      onBlur: k,
       onInput: k,
       onSelect: k,
       value: null,
@@ -190,12 +202,13 @@ module.exports = React.createClass({
     }
   },
 
-  handleInputBlur: function() {
+  handleInputBlur: function(event) {
     var focusedAnOption = this.state.focusedIndex != null;
     if (focusedAnOption)
       return;
     this.maybeSelectAutocompletedOption();
     this.hideList();
+    this.props.onBlur(event);
   },
 
   handleOptionBlur: function() {
